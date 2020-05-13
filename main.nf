@@ -327,6 +327,7 @@ process launch_shiny {
         params.shiny
     script:
         def ip = "uname".execute().text.trim() == "Darwin" ? "localhost" : "hostname -i".execute().text.trim()
+        log.error "uname".execute().text.trim()
         log.error"""
         Visit the shiny server running at ${"http://"+ip+':44333'} to inspect the results.
         Closing the browser window will terminate the pipeline.
